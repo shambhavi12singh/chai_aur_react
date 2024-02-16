@@ -6,6 +6,7 @@ import './App.css'
 
 function App(){
   let [counter, setCounter] = useState(5)
+  let [name,setName] = useState('shambhavi')
 
  // let counter = 5
 
@@ -30,6 +31,10 @@ function App(){
       alert("you exceed the limit")
     }
   }
+  const nameChange = () =>{
+    setName (name === 'shambhavi' ? 'shubhi': 'shambhavi')
+  
+  }
   return (
     <>
       <h1> Chai aur React</h1>
@@ -39,6 +44,11 @@ function App(){
       <br></br>
       <button
       onClick={decreaseValue}>Decrease Value : {counter}</button>
+      <br>
+      </br>
+      <h1>  {name}</h1>
+      <button
+      onClick={nameChange}>Click me</button>
     </>
   )
 }
