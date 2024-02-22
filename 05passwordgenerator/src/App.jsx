@@ -6,6 +6,7 @@ function App() {
   const [number , setNumber] = useState(false)
   const [ character, setCharacter] = useState(false)
   const[ password , setPassword] = useState("")
+  const [buttonColor, setButtonColor] = useState('bg-blue-700');
   //ref hook
   const passwordRef = useRef(null)
 
@@ -26,6 +27,10 @@ function App() {
     passwordRef.current?.select()
     passwordRef.current?.setSelectionRange(0,100)
     window.navigator.clipboard.writeText(password)
+    setButtonColor("bg-red-700")
+    setTimeout( ()=> {
+      setButtonColor("bg-blue-700")
+    } , 1000)
   },[password])
 
      
@@ -47,7 +52,7 @@ function App() {
           ref={passwordRef} />
           <button 
           onClick={copyPasswordToClipboard}
-          className='outline-none bg-blue-700 text-white px-3 py-1 shrink-0'>Copy</button>
+          className={`outline-none text-white px-3 py-1 shrink-0 ${buttonColor}`}>Copy</button>
         </div>
         <div className='flex text-sm gap-x-2 mb-3'>
           <div className='flex items-center gap-x-1 mb-4'>
